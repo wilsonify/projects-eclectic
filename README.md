@@ -8,8 +8,10 @@ python script to visualize the calculation of 100-year flood plain based on USGS
 ![](https://github.com/wilsonify/flood/blob/master/BraysBayouFlow.png)
 
 Cross sectional area of the bayou is a trapazoid.
+
 ![](https://github.com/wilsonify/flood/blob/master/crossSection.png)
 
 height vs flow fits quadratically
+
 ![](https://github.com/wilsonify/flood/blob/master/BraysBayouHeightvsFlow.png)
 
