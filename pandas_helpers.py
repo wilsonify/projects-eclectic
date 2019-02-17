@@ -5,11 +5,13 @@ import pandas as pd
 
 def clean_column_names(self):
     new_column_names = {
-        old: re.sub(
-            string=old.lower(), pattern=r"\W", repl="_"  # \W matches non-alphnumeric
-        ).strip("_")
+        old: re.sub(string=old.lower(),
+                    pattern=r"\W",  # \W matches non-alphnumeric
+                    repl="_"
+                    ).strip("_")
         for old in self.columns
     }
+
     return self.rename(columns=new_column_names)
 
 
