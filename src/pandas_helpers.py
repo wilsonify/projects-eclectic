@@ -4,13 +4,18 @@ import pandas as pd
 
 
 def clean_column_names(self):
-    new_column_names = {
-        old: re.sub(string=old.lower(),
-                    pattern=r"\W",  # \W matches non-alphnumeric
-                    repl="_"
-                    ).strip("_")
-        for old in self.columns
-    }
+    new_column_names = {old: old.lower() for old in self.columns}
+
+    replacements = [("\W", "_"),
+                    ("_+", "_")
+                    ]
+    for pat, rep in replacements:
+        new_column_names = {old: re.sub(string=new_column_names[old],
+                                        pattern=pat,
+                                        repl=rep)
+                            for old in self.columns}
+
+    new_column_names = {old: new_column_names[old].strip("_") for old in self.columns}
 
     return self.rename(columns=new_column_names)
 
