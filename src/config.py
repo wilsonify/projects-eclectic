@@ -6,7 +6,7 @@ LOGGING_CONFIG_DICT = {
     'formatters': {
         'detailed': {
             'class': 'logging.Formatter',
-            'format': '%(asctime)s %(name)-15s %(levelname)-8s %(processName)-10s %(message)s'
+            'format': "%(asctime)s,%(name)s,%(levelname)s,%(filename)s,%(processName)s,%(funcName)s,%(message)s"
         }
     },
     'handlers': {
@@ -16,19 +16,20 @@ LOGGING_CONFIG_DICT = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'mplog.log'),
+            'filename': os.path.join(LOG_DIR, 'detailed.log'),
             'mode': 'w',
             'formatter': 'detailed',
         },
         'foofile': {
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'mplog-foo.log'),
+            'filename': os.path.join(LOG_DIR, 'info.log'),
             'mode': 'w',
+            'level': 'INFO',
             'formatter': 'detailed',
         },
         'errors': {
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'mplog-errors.log'),
+            'filename': os.path.join(LOG_DIR, 'errors.log'),
             'mode': 'w',
             'level': 'ERROR',
             'formatter': 'detailed',
